@@ -4,7 +4,27 @@
 
 <h1>게시물 작성</h1>
 
-<form>
+<script>
+  function ArticleSave__submitForm(form) {
+    form.title.value = form.title.value.trim();
+
+    if (form.title.value.length == 0) {
+      alert('제목을 입력해주세요.')
+      form.title.focus();
+      return;
+    }
+
+    form.body.value = form.body.value.trim();
+
+    if (form.body.value.length == 0) {
+      alert('내용을 입력해주세요.')
+      form.body.focus()
+      return;
+    }
+  }
+</script>
+
+<form onsubmit="ArticleSave__submitForm(this); return false;">
   <div>
     <span>제목</span>
     <div>
@@ -25,15 +45,4 @@
       <input type="submit" value="작성"/>
     </div>
   </div>
-
-    <h1>폼 v1</h1>
-    <form action="https://search.naver.com/search.naver" target="_blank">
-        <div><input type="text" name="where" value="nexearch"></div>
-        <div><input type="text" name="sm" value="top_hty"></div>
-        <div><input type="text" name="fbm" value="0"></div>
-        <div><input type="text" name="ie" value="utf8"></div>
-        <div><input type="text" name="query" value="program"></div>
-        <div><input type="submit" value="검색"></div>
-    </form>
-
 </form>
