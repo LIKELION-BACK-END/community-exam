@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleRepository {
-
     private static List<ArticleDto> datum;
     private static long lastId;
 
@@ -26,5 +25,15 @@ public class ArticleRepository {
 
     public List<ArticleDto> findAll() {
         return datum;
+    }
+
+    public ArticleDto findById(long id) {
+        for ( ArticleDto articleDto : datum ) {
+            if ( articleDto.getId() == id ) {
+                return articleDto;
+            }
+        }
+
+        return null;
     }
 }
